@@ -5,7 +5,7 @@ PROJECT_DIR_TEMP:=$(patsubst %/makefile,%, $(abspath $(lastword ${MAKEFILE_LIST}
 # the number is how many tasks are going to be used for compiling (should be the number of threads your cpu has for best performance)
 MAKEFLAGS=-j1
 # exe name
-PROJECT:=coleNye
+PROJECT:=main
 # the directory in which all .o and .d files will be made
 OBJ_O_DIR:=bin
 
@@ -14,8 +14,10 @@ INCLUDE_DIRS= C:\\raylib\\raylib\\src
 
 # extra include flags
 INCLUDE_FLAGS=
+
 # the paths to libs for linking
 LIB_DIRS= C:\\raylib\\raylib\\src
+
 # source files directory (the project directory is automatically added)
 SRC:=src
 # the directory for lib files that are made with "make lib"
@@ -30,7 +32,7 @@ LIB_NAME:=
 CC:=g++
 # linker flags for compilation
 # add "-mwindows" to disable the terminal
-LINKERFLAGS:= -lraylib
+LINKERFLAGS:= -lraylib -lwinmm -lgdi32
 # -mwindows
 # flags to generate dependencies for all .o files
 DEPFLAGS:=-MP -MD
